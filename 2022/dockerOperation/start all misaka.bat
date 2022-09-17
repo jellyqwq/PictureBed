@@ -1,0 +1,1 @@
+docker start misaka0 misaka1 misaka2
