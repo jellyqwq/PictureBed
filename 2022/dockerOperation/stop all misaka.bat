@@ -1,1 +1,0 @@
-docker stop misaka0 misaka1 misaka2
