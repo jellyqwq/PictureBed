@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500;600&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/multinav.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+</head>
+<body>
+    <!-- 需要一个导航栏  侧边|置顶型 -->
+    <header>
+        <input type="checkbox" name="" id="check">
+        <div class="nav-btn">
+            <div class="nav-links" id="nav-box-1"></div>
+        </div>
+        <div class="hamburger-menu-container">
+            <div class="hamburger-menu">
+                <div></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main" id="main">
+        <!-- 镇站之宝 -->
+        <div class="site-header">
+            <div class="avatar">
+                <a href="/"><img src="/favicon/android-chrome-192x192.png" alt="Paimon"></a>
+            </div>
+            <!-- 站点名称 -->
+            <div class="site-title-box">
+                <a href="/" class="site-title"></a>
+            </div>
+            <!-- 站点格言|理念|简述 -->
+            <div class="motto-box"><span class="motto" id="motto"></span></div>
+        </div>
+        
+        <div id="article-info-container"></div>
+
+        <div id="container">
+            <div class="article" id="article"></div>
+        </div>
+
+        <div class="page-shift">
+            <button id="ps-left">上一页</button>
+            <button id="ps-right">下一页</button>
+        </div>
+        
+        <div id="bottom-info" class="bottom-bar">
+            Copyright: <a id="copyright-link"><span id="copyright-name"></span></a>
+        </div>
+    </div>
+    
+
+    <script type="module" src="/scripts/main.js"></script>
+    <script src="/scripts/scroll.js"></script>
+    <script src="/scripts/articles.js"></script>
+</body>
+</html>

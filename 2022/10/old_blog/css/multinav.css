@@ -1,0 +1,295 @@
+:root {
+    --nav-label-width: 90px;
+}
+header {
+    line-height: 44px;
+    height: 44px;
+    position: fixed;
+	top: 0;
+    width: 100%;
+    transition: transform .5s;
+    background: linear-gradient(45deg, rgba(189, 118, 255, 0.817), rgba(131, 122, 255, 0.817), rgba(117, 241, 255, 0.817), rgba(125, 255, 183, 0.817));
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+header * {
+    font-size: .75rem;
+}
+
+/* 导航栏隐藏 */
+.is-hide {
+    transform: translateY(-100%);
+}
+header li {
+    list-style: none;
+}
+
+.nav-btn {     
+    display: flex;
+    justify-content: center;
+}
+.nav-btn ul {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.nav-link {
+    position: relative;
+}
+
+
+.nav-link > a {
+    display: inline-block;
+    line-height: 44px;
+    width: var(--nav-label-width);
+    color: rgb(0, 0, 0);
+    transition: .5s;
+}
+.nav-link:hover > a {
+    /* scale(1.1) 缩放倍数,1.1->原来的1.1 */
+    /* transform: scale(1.1); */
+    /* background-color: rgba(22, 174, 65, 0.817); */
+    background-color: rgba(0, 0, 0, 0.217);
+    color: #fff;
+}
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    /* 相对顶部的距离 */
+    transform: translateY(-10px);
+    /* 透明度 */
+    opacity: 0;
+    transition: .5s;
+}
+.dropdown ul {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.nav-links li:hover > .dropdown ul {
+    display: flex;
+}
+.dropdown-link > a {
+    display: flex;
+    color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.217);
+    width: var(--nav-label-width);
+    line-height: 44px;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown-link:hover > a {
+    background-color: rgba(0, 0, 0, 0.564);
+    color: rgb(255, 255, 255);
+}
+.nav-link:hover > .dropdown,
+.dropdown-link:hover > .dropdown {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+.dropdown-link {
+    position: relative;
+}
+.dropdown.second {
+    position: absolute;
+    /* top计算 */
+    top: 0;
+    /* left计算 */
+    left: var(--nav-label-width);
+    transform: translateX(-10px);
+    opacity: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.217);
+    /* display: none; */
+    transition: .5s;
+    justify-content: center;
+}
+
+/* 小屏幕展示可点击的导航栏 */
+
+.hamburger-menu-container {
+    margin-right: 2.5px;
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+.hamburger-menu {
+    width: 39px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hamburger-menu div {
+    width: 35px;
+    height: 5px;
+    background-color:#fff;
+    position: relative;
+    border-radius: 3px;
+    transition: .5s;
+    z-index: 1001;
+}
+.hamburger-menu div::before,
+.hamburger-menu div::after {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    width: inherit;
+    height: inherit;
+    border-radius: 3px;
+    right: 0px;
+    transition: .5s;
+}
+.hamburger-menu div:before{
+    transform: translateY(-10px);
+}
+.hamburger-menu div:after{
+    transform: translateY(10px);
+}
+#check {
+    width: 39px;
+    height: 39px;
+    position: absolute;
+    z-index: 1003;
+    margin-right: 2.5px;
+    display: none;
+    opacity: 0;
+}
+#check:checked ~ .hamburger-menu-container .hamburger-menu div{
+    background-color: transparent;
+}
+
+#check:checked ~ .hamburger-menu-container .hamburger-menu div:before{
+    transform: translateY(0) rotate(-45deg);
+}
+
+#check:checked ~ .hamburger-menu-container .hamburger-menu div:after{
+    transform: translateY(0) rotate(45deg);
+}
+
+@keyframes animation{
+    from{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        justify-content: right;
+    }
+    .hamburger-menu-container{
+        display: flex;
+    }
+
+    #check{
+        display: block;
+    }
+    .nav-btn{
+        position: fixed;
+        height: calc(100vh - 44px);
+        top: 44px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(90deg, rgba(189, 118, 255, 0.817), rgba(131, 122, 255, 0.817), rgba(117, 241, 255, 0.817), rgba(125, 255, 183, 0.817));
+        flex-direction: column;
+        justify-content: left;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: .65s;
+        padding: 4px 0;
+    }
+    #check:checked ~ .nav-btn{
+        transform: translateX(0);
+    }
+
+    #check:checked ~ .nav-btn .nav-link{
+        animation: animation .5s ease forwards var(--i);
+    }
+
+    .nav-links{
+        flex: initial;
+        width: 100%;
+    }
+
+    .nav-links > ul{
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .nav-link{
+        width: 100%;
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    .nav-link > a{
+        display: inline-block;
+        line-height: 44px;
+        margin: 4px 20px;
+        border-radius: 8px;
+        background-color: rgb(255, 255, 255);
+        transition: .5s;
+        text-align: center;
+    }
+
+    .nav-link:hover > a{
+        color: rgba(0, 0, 0, 0.817);
+        transform: scale(1);
+        background-color: rgba(125, 255, 183, 0.817);
+    }
+
+    .dropdown li {
+        width: 100%;
+        /* background: linear-gradient(45deg, rgba(189, 118, 255, 0.817), rgba(131, 122, 255, 0.817), rgba(117, 241, 255, 0.817), rgba(125, 255, 183, 0.817)); */
+        background-color: rgba(0, 0, 0, 0.217);
+    }
+    .dropdown,
+    .dropdown.second{
+        position: initial;
+        top: initial;
+        left: initial;
+        transform: initial;
+        opacity: 0;
+        pointer-events: auto;
+        width: 100%;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.217);
+        transition: .5s;
+        display: none;
+    }
+    
+    .nav-link:hover > .dropdown,
+    .dropdown-link:hover > .dropdown{
+        opacity: 1;
+        display: inline-block;
+    }
+
+    
+    .dropdown-link > a{
+        background-color: transparent;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        display: inline-block;
+        line-height: 44px;
+        margin: 4px 20px;
+        border-radius: 8px;
+        background-color: #fff;
+        transition: .5s;
+    }
+    .dropdown-link:hover > a{
+        color: #000;
+        background-color: rgba(125, 255, 183, 0.817);
+    }
+}
