@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>666</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#news").mouseover(function(){
+                $("#announcement-content").hide();
+                $("#news-content").show();
+                $("#announcement").removeClass("bg");
+                $("#news").addClass("bg");
+            });
+            $("#announcement").mouseover(function(){
+                $("#news-content").hide();
+                $("#announcement-content").show();
+                $("#announcement").addClass("bg");
+                $("#news").removeClass("bg");
+            })
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .bg {
+            background-color: rgb(2, 99, 178);
+            color: white;
+            
+        }
+        .sub-box {
+            padding: 10px;
+        }
+        .box-size {
+            display: inline-block;
+            border-bottom-color: rgb(2, 99, 178);
+            border-bottom-width: 3px;
+            border-bottom-style: solid;
+        }
+        .content-box {
+            padding: 10px 10px;
+        }
+        .content-box p {
+            padding: 3px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-size">
+        <div style="float: left" id="news" class="bg sub-box">
+            海科新闻
+        </div>
+        <div style="float: left" id="announcement" class="sub-box">
+            海科公告
+        </div>
+        <div style="float: right; font-size: 15px;" class="sub-box">
+            +更多
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <div class="content-box">
+        <div id="news-content" class="content-news">
+            <p>海科新闻内容</p>
+            <p>海科新闻内容</p>
+            <p>海科新闻内容</p>
+            <p>海科新闻内容</p>
+        </div>
+        <div hidden="hidden" id="announcement-content" class="content-announcement">
+            <p>海科公告内容</p>
+            <p>海科公告内容</p>
+            <p>海科公告内容</p>
+            <p>海科公告内容</p>
+        </div>
+    </div>
+</body>
+</html>
