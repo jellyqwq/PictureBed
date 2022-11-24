@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransColor</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+        .pic-box {
+            width: auto;
+            height: auto;
+        }
+        .resize {
+            width: 600px;
+            height: 500px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#red-color").click(function() {
+                $("#red-color").toggleClass("red")
+            })
+            $(".pic-box").click(function() {
+                $(".pic-box img").toggleClass("resize")
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="red-color">点击我切换颜色</div>
+    
+    <div class="pic-box">
+        <img src="https://t7.baidu.com/it/u=2511982910,2454873241&fm=193&f=GIF" alt="city sense">
+    </div>
+</body>
+</html>
